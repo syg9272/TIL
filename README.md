@@ -1,2 +1,8 @@
-# TIL
-:closed_book::orange_book::notebook_with_decorative_cover::green_book::blue_book:
+# TIL 규칙
+
+---
+
+- 취업 전까지 주 6일 포스팅
+- 거창하게 X 꾸준한 기록이 목표
+- 자기 전까지 업로드
+- 월요일엔 한 주의 목표, 일요일엔 한 주의 회고 작성
