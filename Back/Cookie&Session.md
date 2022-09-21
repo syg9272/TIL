@@ -10,7 +10,7 @@
   - `javax.servlet.http.Cookie`
   - 사용자의 컴퓨터(client)에 정보 저장 ----> `보안에 좋지 않음 !!!`
   - 요청 시 헤더에 쿠키정보를 넣어 서버에 전송
-  - `key와 value`  --> String 형태로 이루어짐
+  - `key와 value`  --> String(file) 형태로 이루어짐
   - 브라우저 별로 관리
   - 개수 제한 : client에 총 300개 cookie 저장 가능(가장 오래된 쿠키 자동 삭제)
   - 도메인 당 20개 cookie 가질 수 있음
