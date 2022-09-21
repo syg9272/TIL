@@ -7,7 +7,7 @@
 ## cookie
 - 특징
 
-  - `java.servlet.http.Cookie`
+  - `javax.servlet.http.Cookie`
   - 사용자의 컴퓨터(client)에 정보 저장 ----> `보안에 좋지 않음 !!!`
   - 요청 시 헤더에 쿠키정보를 넣어 서버에 전송
   - `key와 value`  --> String 형태로 이루어짐
@@ -54,8 +54,37 @@
 
 
 ## session
-- server에 정보 저장
-- 서버에 부담되기 때문에 유지시간을 최소화해야함
+- 특징
+	- `javax.servlet.http.HttpSession`
+	- server에 정보 저장
+	- 서버에 부담되기 때문에 유지시간을 최소화해야함
+	- Object 형태로 저장
+	- 제일 긴 유지시간 : 브라우저가 종료될 때까지 ----> 쿠키보다 비교적 보안이 좋음
+	- sessionTimeout (마지막 요청으로부터 30분)
+	- 클라이언트 별로 session-id 부여
+	- 용량 제한 없음
+
+- 사용
+	- 사이트 내에서 화면 이동해도 로드인 유지
+	- 장바구니
+
+- 동작 순서
+```
+1. client가 페이지 요청
+2. 접근 client의 Request-Header Cookie를 통해 session-id를 보냈는지 확인
+3. session-id가 존재하지 않으면 생성하여 돌려줌
+4. 받은 session-id를 쿠키를 사용해 서버에 저장 (쿠키 이름 : JSESSIONID)
+5. 클라이언트 재접속 --> 위 쿠키를 활용해 session-id값을 서버에 전달
+```
+- session 설정
+
+![image](https://user-images.githubusercontent.com/55950992/191404103-6ab10cdb-4b63-49ba-8fad-671819c675dc.png)
 
 
+  1. 생성 `HttpSession session = request.getSession();`  `HttpSession session = request.getSession(false);`
+  2. 값 저장 `session.setAttribute(String name, Object value);`
+  3. 값 얻기 `Object obj = session.getAttribute(String name);`
+  4. 값 제거 `session.removeAttribute(String name);`	`session.invalidate();` ---> 모든 속성 제거
+  5. 생성시간 `long ct = session.getCreationTime();`
+  6. 마지막 접근 시간 `long lat = session.getLastAccessedTime();`
 
